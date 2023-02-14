@@ -5,13 +5,13 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Car {
-    String model;
-    String color;
-    Integer year;
-    Integer power;
-    Integer weight;
-    Integer maxCargoWeight;
-    double price;
+    private String model;
+    private String color;
+    private Integer year;
+    private Integer power;
+    private Integer weight;
+    private Integer maxCargoWeight;
+    private double price;
     private boolean engineOn;
     private List<Fruit> fruits;
 
@@ -26,8 +26,6 @@ public class Car {
         this.fruits = new ArrayList<>();
     }
 
-    //    public Car (){
-//    }
     public void start() {
         this.engineOn = true;
         System.out.println("Машина запущена!");
@@ -47,11 +45,11 @@ public class Car {
     }
 
     public void addFruits(Fruit fruit) {
-        if ((this.getWeightFruits() + fruit.weight) <= this.maxCargoWeight) {
+        if ((this.getWeightFruits() + fruit.getWeight()) <= this.maxCargoWeight) {
             this.fruits.add(fruit);
-            System.out.printf("Фрукт %s добавлен в %s!\n", fruit.name, this.model);
+            System.out.printf("Фрукт %s добавлен в %s!\n", fruit.getName(), this.model);
         } else {
-            System.out.printf("Фрукт %s не влез в %s!\n", fruit.name, this.model);
+            System.out.printf("Фрукт %s не влез в %s!\n", fruit.getName(), this.model);
         }
     }
 
@@ -59,7 +57,7 @@ public class Car {
         if (fruits.isEmpty()) return 0.00;
         double weightFruit = 0.00;
         for (int i = 0; i < this.fruits.size(); i++) {
-            weightFruit += this.fruits.get(i).weight;
+            weightFruit += this.fruits.get(i).getWeight();
         }
         return weightFruit;
     }
@@ -86,6 +84,10 @@ public class Car {
         d *= 100;
         int i = (int) d;
         return (double) i / 100;
+    }
+
+    public String getModel() {
+        return this.model;
     }
 
     public void getInfo() {

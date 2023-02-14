@@ -14,8 +14,8 @@ public class Main {
         car2.addFruits(fr2);
         car2.addFruits(fr2);
         car2.addFruits(fr2);
-        System.out.println("Вес фруктов в машине " + car1.model + ": " + car1.getWeightFruits());
-        System.out.println("Вес фруктов в машине " + car2.model + ": " +car2.getWeightFruits());
+        System.out.println("Вес фруктов в машине " + car1.getModel() + ": " + car1.getWeightFruits());
+        System.out.println("Вес фруктов в машине " + car2.getModel() + ": " +car2.getWeightFruits());
 
         race(1000, car1, car2);
     }
@@ -32,19 +32,19 @@ public class Main {
             double tempTime2 = car2.travelTime(step);
             time2 += tempTime2;
             if(tempTime1<tempTime2){
-                System.out.printf("На этапе %d лидирует авто: %s\n", e, car1.model);
+                System.out.printf("На этапе %d лидирует авто: %s\n", e, car1.getModel());
             } else if (tempTime2<tempTime1) {
-                System.out.printf("На этапе %d лидирует авто: %s\n", e, car2.model);
+                System.out.printf("На этапе %d лидирует авто: %s\n", e, car2.getModel());
             } else {
                 System.out.printf("На этапе %d авто идут ноздря в ноздрю\n", e);
             }
         }
 
-        System.out.printf("Общее время за гонку:\n\t%s = %.2f\n\t%s = %.2f\n", car1.model, time1, car2.model, time2);
+        System.out.printf("Общее время за гонку:\n\t%s = %.2f\n\t%s = %.2f\n", car1.getModel(), time1, car2.getModel(), time2);
         if(time1<time2){
-            System.out.printf("Выигрывает авто: %s\n", car1.model);
+            System.out.printf("Выигрывает авто: %s\n", car1.getModel());
         } else if (time2<time1) {
-            System.out.printf("Выигрывает авто: %s\n", car2.model);
+            System.out.printf("Выигрывает авто: %s\n", car2.getModel());
         } else {
             System.out.println("Ничья!");
         }
