@@ -117,7 +117,7 @@ public class AccuweatherNodel implements WeatherModel{
                                                 .asText());
         dailyWeather.setTempMax(objectMapper.readTree(string)
                                                 .get("Temperature")
-                                                .get("Minimum")
+                                                .get("Maximum")
                                                 .get("Value")
                                                 .asText());
         String day = objectMapper.readTree(string).get("Day").get("IconPhrase").asText();
